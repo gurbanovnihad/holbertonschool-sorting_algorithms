@@ -10,29 +10,27 @@
  * @size: size of the array
  */
 
-void swap(int *a, int *b);
-
-void swap(int *a, int *b)
-{
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j;
+	size_t i, j = size;
+	int temp;
 
-	j = 0;
-	while(*(array + j++))
-	{ 
-		for (i = 0; i < size - 1; i++) {
+
+	if (array == NULL || size < 2)
+		return;
+
+	for (j = 1; j < size; j++)
+	{
+		for (i = 0; i < size - 1; i++)
+		{
 			if (array[i] > array[i + 1])
-				swap(&array[i], &array[i + 1]);
+			{
+				temp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = temp;
+				print_array(array, size);
+			}
 		}
-	
-	print_array(array, size);
+
 	}
 }
