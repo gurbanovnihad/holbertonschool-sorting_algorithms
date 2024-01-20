@@ -8,15 +8,15 @@
  */
 void swap_nodes(int *array, int a, int b, size_t size)
 {
-        int temp;
+	int temp;
 
-        if (array[a] != array[b])
-        {
-                temp = array[a];
-                array[a] = array[b];
-                array[b] = temp;
-                print_array(array, size);
-        }
+	if (array[a] != array[b])
+	{
+		temp = array[a];
+		array[a] = array[b];
+		array[b] = temp;
+		print_array(array, size);
+	}
 }
 /**
  * divide_array - array partitioning
@@ -28,18 +28,18 @@ void swap_nodes(int *array, int a, int b, size_t size)
  */
 int divide_array(int *array, int low, int high, size_t size)
 {
-        int pivot = array[high], i = low, j;
+	int pivot = array[high], i = low, j;
 
-        for (j = low; j <= high; j++)
-        {
-                if (array[j] < pivot)
-                {
+	for (j = low; j <= high; j++)
+	{
+		if (array[j] < pivot)
+		{
 			swap_nodes(array, i, j, size);
-                        i++;
-                }
-        }
-        swap_nodes(array, i, high, size);
-        return (i);
+			i++;
+		}
+	}
+	swap_nodes(array, i, high, size);
+	return (i);
 }
 /**
  * quick_sort_recursive - function that sorts
@@ -51,12 +51,12 @@ int divide_array(int *array, int low, int high, size_t size)
  */
 void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
-        int p_index;
+	int p_index;
 
-        if (low > high)
-        {
-                return;
-        }
+	if (low > high)
+	{
+		return;
+	}
 	p_index = divide_array(array, low, high, size);
 	quick_sort_recursive(array, low, p_index - 1, size);
 	quick_sort_recursive(array, p_index + 1, high, size);
